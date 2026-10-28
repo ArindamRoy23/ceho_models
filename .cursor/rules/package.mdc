@@ -1,0 +1,6 @@
+---
+alwaysApply: true
+---
+
+Use uv for package management.
+Use nested uv workspaces for each server type.

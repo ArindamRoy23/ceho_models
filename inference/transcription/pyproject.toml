@@ -1,0 +1,22 @@
+[project]
+name = "transcription"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "nemo-toolkit[asr]",
+    "torch>=2.11,<2.12",
+    "torchaudio>=2.11,<2.12",
+]
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cu126", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+torchaudio = [
+    { index = "pytorch-cu126", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true
