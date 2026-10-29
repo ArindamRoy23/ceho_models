@@ -49,14 +49,17 @@ def describe(model: torch.nn.Module) -> None:
 
     encoder = model.cfg.encoder
     decoder = model.cfg.decoder.prednet
-    joint = model.cfg.joint.jointnet
+    jointnet = model.cfg.joint.jointnet
     print(
         "encoder: "
         f"{encoder.n_layers} layers, d_model {encoder.d_model}, "
         f"{encoder.n_heads} heads, subsample x{encoder.subsampling_factor}"
     )
     print(f"decoder: {decoder.pred_rnn_layers}-layer LSTM, hidden {decoder.pred_hidden}")
-    print(f"joint: hidden {joint.joint_hidden}, extra outputs {joint.num_extra_outputs}")
+    print(
+        f"joint: hidden {jointnet.joint_hidden}, "
+        f"extra outputs {model.cfg.joint.num_extra_outputs}"
+    )
 
 
 def transcribe(model: torch.nn.Module, audio: Path) -> str:
